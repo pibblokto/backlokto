@@ -1,0 +1,21 @@
+---
+jobs:
+- id: "first_backup"
+  provider: aws.rds.backup
+  spec:
+    rds_arn: "someArn"
+  targets:
+  - type: "s3"
+    s3_bucket_name: "my-bucket"
+    s3_bucket_key: "staging/backups"
+- id: "second_backup"
+  provider: postgres.pg_dump
+  spec:
+    connection_string: "someConnectionString"
+  targets:
+  - type: "s3"
+    s3_bucket_name: "my-bucket"
+    s3_bucket_key: "prod/backups"
+  - type: s3
+    s3_bucket_name: "my-bucket"
+    s3_bucket_key: "prod/backups"

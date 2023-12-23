@@ -1,9 +1,9 @@
 package types
 
 type Specs struct {
-	Path                     string `yaml:"path"`
-	RdsArn                   string `yaml:"rds_arn"`
-	PostgresConnectionString string `yaml:"postgres_connection_string"`
+	Path             string `yaml:"path"`
+	RdsArn           string `yaml:"rds_arn"`
+	ConnectionString string `yaml:"connection_string"`
 	//Extension                string `yaml:"extension"`
 	// rdsArn string
 	// connectionString string
@@ -33,7 +33,7 @@ type Jobs struct {
 	Jobs []BackupJob `yaml:"jobs"`
 }
 
-var TargetsMap = map[string]func(confparse.Target){
-	// "s3": target.S3Target
-	// "local": target.LocalTarget
-}
+//var TargetsMap = map[string]func(confparse.Target){
+//	// "s3": target.S3Target
+//	// "local": target.LocalTarget
+//}
