@@ -10,6 +10,7 @@ import (
 
 func S3Target(target types.Target, backupPath string) {
 	var access_key string
+
 	var secret_key string
 
 	if target.AccessKey == nil {
