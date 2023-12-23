@@ -10,16 +10,10 @@ type Specs struct {
 	// ...
 }
 
-type TargetSpecs struct {
+type Target struct {
+	Type         string `yaml:"type"`
 	S3BucketName string `yaml:"s3_bucket_name"`
 	S3BucketKey  string `yaml:"s3_bucket_key"`
-	// Local string `yaml:"local"`
-	// ...
-}
-
-type Target struct {
-	Type       string      `yaml:"type"`
-	TargetSpec TargetSpecs `yaml:"target_spec"`
 }
 
 type BackupJob struct {

@@ -1,7 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/pibblokto/backlokto/pkg/confparse"
+	"github.com/pibblokto/backlokto/pkg/types"
+)
 
 func main() {
-	fmt.Println("pass...")
+
+	var jobs types.Jobs = confparse.ParseConfig("examples/configs/config.yaml")
+
+	fmt.Println(jobs)
+
 }

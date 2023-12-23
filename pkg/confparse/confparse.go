@@ -1,10 +1,10 @@
 package confparse
 
 import (
+	"github.com/pibblokto/backlokto/pkg/types"
+	"gopkg.in/yaml.v3"
 	"log"
 	"os"
-
-	"github.com/pibblokto/backlokto/pkg/types"
 )
 
 func ParseConfig(configPath string) types.Jobs {
