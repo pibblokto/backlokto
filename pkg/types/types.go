@@ -1,13 +1,13 @@
 package types
 
 type Specs struct {
-	Path             string `yaml:"path"`
-	RdsArn           string `yaml:"rds_arn"`
-	ConnectionString string `yaml:"connection_string"`
-	//Extension                string `yaml:"extension"`
-	// rdsArn string
-	// connectionString string
-	// ...
+	Path     string `yaml:"path"`
+	RdsArn   string `yaml:"rds_arn"`
+	Host     string `yaml:"host"`
+	Port     string `yaml:"port"`
+	Database string `yaml:"database"`
+	Username string `yaml:"username"`
+	Password string `yaml:"password"`
 }
 
 type Target struct {
@@ -26,8 +26,3 @@ type BackupJob struct {
 type Jobs struct {
 	Jobs []BackupJob `yaml:"jobs"`
 }
-
-//var TargetsMap = map[string]func(confparse.Target){
-//	// "s3": target.S3Target
-//	// "local": target.LocalTarget
-//}

@@ -11,7 +11,11 @@ jobs:
 - id: "second_backup"
   provider: postgres.pg_dump
   spec:
-    connection_string: "someConnectionString"
+    host: localhost
+    port: '5432'
+    database: pg
+    username: 'Admin'
+    password: 'secret'
   targets:
   - type: "s3"
     s3_bucket_name: "my-bucket"
