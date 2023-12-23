@@ -4,10 +4,6 @@ jobs:
   provider: aws.rds.backup
   spec:
     rds_arn: "someArn"
-  targets:
-  - type: "s3"
-    s3_bucket_name: "my-bucket"
-    s3_bucket_key: "staging/backups"
 - id: "second_backup"
   provider: postgres.pg_dump
   spec:
@@ -20,6 +16,12 @@ jobs:
   - type: "s3"
     s3_bucket_name: "my-bucket"
     s3_bucket_key: "prod/backups"
+    region: eu-central-1
+    access_key: xxxxxxxxxx
+    secret_key: xxxxxxxxxx
   - type: s3
     s3_bucket_name: "my-bucket"
     s3_bucket_key: "prod/backups"
+    region: eu-central-1
+    access_key: xxxxxxxxxx
+    secret_key: xxxxxxxxxx

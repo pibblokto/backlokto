@@ -14,6 +14,9 @@ type Target struct {
 	Type         string `yaml:"type"`
 	S3BucketName string `yaml:"s3_bucket_name"`
 	S3BucketKey  string `yaml:"s3_bucket_key"`
+	Region       string `yaml:"region"`
+	AccessKey    string `yaml:"access_key"`
+	SecretKey    string `yaml:"secret_key"`
 }
 
 type BackupJob struct {
