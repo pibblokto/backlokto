@@ -1,6 +1,6 @@
 module github.com/pibblokto/backlokto
 
-go 1.21.0
+go 1.23
 
 require (
 	github.com/aws/aws-sdk-go v1.49.9

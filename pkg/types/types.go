@@ -4,7 +4,7 @@ type Specs struct {
 	Path     string `yaml:"path"`
 	RdsArn   string `yaml:"rds_arn"`
 	Host     string `yaml:"host"`
-	Port     string `yaml:"port"`
+	Port     int    `yaml:"port"`
 	Database string `yaml:"database"`
 	Username string `yaml:"username"`
 	Password string `yaml:"password"`
