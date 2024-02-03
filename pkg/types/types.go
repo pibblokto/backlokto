@@ -29,3 +29,7 @@ type BackupJob struct {
 type Jobs struct {
 	Jobs []BackupJob `yaml:"jobs"`
 }
+
+type Artifacts struct {
+	Filepath string
+}

@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-func PostgresPgDump(job *types.BackupJob) {
+func PostgresPgDump(job *types.BackupJob) types.Artifacts {
 
 	var pgPass string
 
@@ -38,7 +38,12 @@ func PostgresPgDump(job *types.BackupJob) {
 		fmt.Println(dumpExec.Error.Err)
 		fmt.Println(dumpExec.Output)
 	} else {
-		fmt.Println("Dump success")
+		fmt.Printf("Dump was succesfull. Filename: %s\n", dumpExec.File)
 		fmt.Println(dumpExec.File)
 	}
+
+	artifacts := types.NewArtifacts()
+	artifacts.Filepath = dumpExec.File
+
+	return artifacts
 }
