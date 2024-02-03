@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/pibblokto/backlokto/pkg/confparse"
 	"github.com/pibblokto/backlokto/pkg/providers"
 	"github.com/pibblokto/backlokto/pkg/types"
 )
 
-var ProvidersMap = map[string]func(*types.BackupJob) types.Artifacts{
+var ProvidersMap = map[string]func(*types.BackupJob){
 	"postgres.pg_dump": providers.PostgresPgDump,
 }
 

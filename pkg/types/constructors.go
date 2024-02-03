@@ -1,7 +1,7 @@
 package types
 
 func NewArtifacts() *Artifacts {
-    return &Artifacts{
-        Filepath: ""
-    }
+	return &Artifacts{
+		Filepath: "",
+	}
 }
