@@ -2,13 +2,14 @@ package providers
 
 import (
 	"fmt"
-	pg "github.com/habx/pg-commands"
-	"github.com/pibblokto/backlokto/pkg/types"
 	"os"
 	"time"
+
+	pg "github.com/habx/pg-commands"
+	"github.com/pibblokto/backlokto/pkg/types"
 )
 
-func PostgresPgDump(job *types.BackupJob) types.Artifacts {
+func PostgresPgDump(job *types.BackupJob) {
 
 	var pgPass string
 
@@ -45,5 +46,8 @@ func PostgresPgDump(job *types.BackupJob) types.Artifacts {
 	artifacts := types.NewArtifacts()
 	artifacts.Filepath = dumpExec.File
 
-	return artifacts
+	for _, target := range job.Targets {
+		TargetsMap[target.Type](&target, artifacts)
+	}
+
 }
