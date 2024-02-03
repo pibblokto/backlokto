@@ -7,7 +7,7 @@ import (
 	"github.com/pibblokto/backlokto/pkg/types"
 )
 
-var ProvidersMap = map[string]func(*types.BackupJob){
+var ProvidersMap = map[string]func(*types.BackupJob) types.Artifacts{
 	"postgres.pg_dump": providers.PostgresPgDump,
 }
 
