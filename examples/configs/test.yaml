@@ -10,8 +10,20 @@ jobs:
     password: 'qwerty'
   targets:
   - type: "s3"
-    s3_bucket_name: "my-bucket"
-    s3_bucket_key: "prod/backups"
-    region: eu-central-1
-    access_key: xxxxxxxxxx
-    secret_key: xxxxxxxxxx
+    s3_bucket_name: "backup-test-kdsj9238j"
+    s3_bucket_key: "prod/backups/test/"
+    region: us-east-1
+    access_key: AKIAQYBHHNEO5EXNXB7X
+    secret_key: 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
+  - type: "s3"
+    s3_bucket_name: "backup-test2-kdsj9238j"
+    s3_bucket_key: "staging"
+    region: us-east-1
+    access_key: AKIAQYBHHNEO5EXNXB7X
+    secret_key: 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
+  - type: "s3"
+    s3_bucket_name: "backup-test3-kdsj9238j"
+    #s3_bucket_key: "prod/backups"
+    region: us-east-1
+    access_key: AKIAQYBHHNEO5EXNXB7X
+    secret_key: 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
