@@ -56,13 +56,18 @@ func S3Target(target *types.Target, articats *types.Artifacts) {
 
 	// Create an S3 uploader
 	uploader := s3.New(sess)
+	var trailing_slash string = ""
+	if target.S3BucketKey != "" {
+		if target.S3BucketKey[len(target.S3BucketKey)-1] != '/' {
+			trailing_slash = "/"
+		}
+	}
 
 	// Upload the file to S3
 	_, err = uploader.PutObject(&s3.PutObjectInput{
 		Bucket: aws.String(bucket_name),
-		Key:    aws.String(file.Name()),
+		Key:    aws.String(target.S3BucketKey + trailing_slash + file.Name()),
 		Body:   file,
-		ACL:    aws.String("public-read"), // Adjust ACL as needed
 	})
 	if err != nil {
 		fmt.Println(fmt.Errorf("failed to upload file to S3: %v", err))
