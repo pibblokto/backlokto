@@ -1,7 +1,9 @@
 ---
 jobs:
-- id: "Test postgres.pg_dump job"
+- id: "Test postgres.pg_dump job [RED]"
   provider: postgres.pg_dump
+  tags:
+    env: red
   spec:
     host: localhost
     port: 5432
@@ -21,6 +23,22 @@ jobs:
     region: us-east-1
     #access_key: xxxxx
     #secret_key: xxxxxxxxxxxx
+  - type: "s3"
+    s3_bucket_name: "backup-test3-kdsj9238j"
+    region: us-east-1
+    #access_key: xxxxx
+    #secret_key: xxxxxxxxxxxx
+- id: "Test postgres.pg_dump job [BLUE]"
+  provider: postgres.pg_dump
+  tags:
+    env: blue
+  spec:
+    host: localhost
+    port: 5432
+    database: 'backlokto'
+    username: 'backlokto'
+    password: 'qwerty'
+  targets:
   - type: "s3"
     s3_bucket_name: "backup-test3-kdsj9238j"
     region: us-east-1

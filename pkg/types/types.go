@@ -20,10 +20,11 @@ type Target struct {
 }
 
 type BackupJob struct {
-	Id       string   `yaml:"id"`
-	Provider string   `yaml:"provider"`
-	Spec     Specs    `yaml:"spec"`
-	Targets  []Target `yaml:"targets"`
+	Id       string            `yaml:"id"`
+	Provider string            `yaml:"provider"`
+	Spec     Specs             `yaml:"spec"`
+	Targets  []Target          `yaml:"targets"`
+	Tags     map[string]string `yaml:"tags"`
 }
 
 type Jobs struct {

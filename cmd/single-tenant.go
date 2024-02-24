@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
 
@@ -20,10 +21,16 @@ func main() {
 
 	var jobs types.Jobs = confparse.ParseConfig(*configpathPtr)
 
-	// Running providers
 	for _, job := range jobs.Jobs {
-		fmt.Printf("Running %s...", job.Id)
-		ProvidersMap[job.Provider](&job)
+		tags, _ := json.Marshal(job.Tags)
+		fmt.Println(string(tags))
+		fmt.Println("--------")
 	}
+
+	// Running providers
+	//for _, job := range jobs.Jobs {
+	//	fmt.Printf("Running %s...", job.Id)
+	//	ProvidersMap[job.Provider](&job)
+	//}
 
 }
