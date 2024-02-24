@@ -20,19 +20,19 @@ func S3Target(target *types.Target, articats *types.Artifacts) {
 	var filepath string = articats.Filepath
 
 	if target.AccessKey == "" {
-		os.Getenv("AWS_ACCESS_KEY_ID")
+		access_key = os.Getenv("AWS_ACCESS_KEY_ID")
 	} else {
 		access_key = target.AccessKey
 	}
 
 	if target.SecretKey == "" {
-		os.Getenv("AWS_SECRET_ACCESS_KEY")
+		secret_key = os.Getenv("AWS_SECRET_ACCESS_KEY")
 	} else {
 		secret_key = target.SecretKey
 	}
 
 	if target.Region == "" {
-		os.Getenv("AWS_DEFAULT_REGION")
+		aws_region = os.Getenv("AWS_DEFAULT_REGION")
 	} else {
 		aws_region = target.Region
 	}
