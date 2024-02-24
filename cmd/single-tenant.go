@@ -36,19 +36,38 @@ func main() {
 		}
 	}
 
-	var jobs types.Jobs = confparse.ParseConfig(*configpathPtr)
+	if len(tagsMap) == 0 {
+		var jobs types.Jobs = confparse.ParseConfig(*configpathPtr)
 
-	for _, job := range jobs.Jobs {
-		tags := job.Tags
-		for k, v := range tags {
-			fmt.Printf("key: %s, value: %s\n", k, v)
+		// Running backup jobs
+		for _, job := range jobs.Jobs {
+			fmt.Printf("Running %s...", job.Id)
+			ProvidersMap[job.Provider](&job)
+		}
+	} else {
+		var allJobs types.Jobs = confparse.ParseConfig(*configpathPtr)
+		var selectedJobs []types.BackupJob
+
+		// Filtering jobs
+		for _, job := range allJobs.Jobs {
+			jobTags := job.Tags
+			isMatch := true
+			for key, value := range tagsMap {
+				if jobTags[key] != value {
+					isMatch = false
+					break
+				}
+			}
+			if isMatch {
+				selectedJobs = append(selectedJobs, job)
+			}
+		}
+
+		// Running filtered backup jobs
+		for _, job := range selectedJobs {
+			fmt.Printf("Running %s...", job.Id)
+			ProvidersMap[job.Provider](&job)
 		}
 	}
-
-	// Running providers
-	//for _, job := range jobs.Jobs {
-	//	fmt.Printf("Running %s...", job.Id)
-	//	ProvidersMap[job.Provider](&job)
-	//}
 
 }
