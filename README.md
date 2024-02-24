@@ -29,5 +29,6 @@ INSERT INTO backlokto_data (column1, column2, column3) VALUES ('FIRST_ROW_1', 'F
 INSERT INTO backlokto_data (column1, column2, column3) VALUES ('SECOND_ROW_1', 'SECOND_ROW_2', 15);
 INSERT INTO backlokto_data (column1, column2, column3) VALUES ('THIRD_ROW_1', 'THIRD_ROW_2', 20);
 INSERT INTO backlokto_data (column1, column2, column3) VALUES ('FOURTH_ROW_1', 'FOURTH_ROW_2', 25);
-INSERT INTO backlokto_data (column1, column2, column3) VALUES ('FIFTH_ROW_1', 'FIFTH_ROW_2', 30); 
+INSERT INTO backlokto_data (column1, column2, column3) VALUES ('FIFTH_ROW_1', 'FIFTH_ROW_2', 30);
+INSERT INTO backlokto_data (column1, column2, column3) VALUES ('SIXTH_ROW_1', 'SIXTH_ROW_2', 35); 
 ```
