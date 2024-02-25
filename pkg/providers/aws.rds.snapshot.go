@@ -3,6 +3,7 @@ package providers
 import (
 	"fmt"
 	"os"
+	"time"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awserr"
@@ -13,11 +14,11 @@ import (
 )
 
 func RdsSnapshot(job *types.BackupJob) {
-	var access_key string = "xxxx"
-	var secret_key string = "xxxx"
-	var aws_region string = "xxxx"
-	var dbInstanceIdentifier string = "xxxxx"
-	var dbSnapshotIdentifier string = "xxxxx"
+	var access_key string
+	var secret_key string
+	var aws_region string
+	var dbInstanceIdentifier string = job.Spec.RdsIdentifier
+	var dbSnapshotIdentifier string = fmt.Sprintf(`%v-%v`, job.Spec.RdsSnapshotPrefix, time.Now().Unix())
 
 	if job.Spec.AccessKey == "" {
 		access_key = os.Getenv("AWS_ACCESS_KEY_ID")
