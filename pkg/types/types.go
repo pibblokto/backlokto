@@ -1,13 +1,17 @@
 package types
 
 type Specs struct {
-	Path     string `yaml:"path"`
-	RdsArn   string `yaml:"rds_arn"`
-	Host     string `yaml:"host"`
-	Port     int    `yaml:"port"`
-	Database string `yaml:"database"`
-	Username string `yaml:"username"`
-	Password string `yaml:"password"`
+	Port              int    `yaml:"port"`
+	Path              string `yaml:"path"`
+	Host              string `yaml:"host"`
+	Database          string `yaml:"database"`
+	Username          string `yaml:"username"`
+	Password          string `yaml:"password"`
+	RdsRegion         string `yaml:"rds_region"`
+	RdsIdentifier     string `yaml:"rds_identifier"`
+	RdsSnapshotPrefix string `yaml:"rds_snapshot_prefix"`
+	AccessKey         string `yaml:"access_key"`
+	SecretKey         string `yaml:"secret_key"`
 }
 
 type Target struct {
