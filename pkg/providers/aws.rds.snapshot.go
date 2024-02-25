@@ -38,6 +38,7 @@ func RdsSnapshot(job *types.BackupJob) {
 		aws_region = job.Spec.RdsRegion
 	}
 	// Create a new sessions
+
 	sess, err := session.NewSession(&aws.Config{
 		Region:      aws.String(aws_region),
 		Credentials: credentials.NewStaticCredentials(access_key, secret_key, ""),
