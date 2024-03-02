@@ -14,6 +14,7 @@ var ProvidersMap = map[string]func(*types.BackupJob){
 	"postgres.pg_dump":         providers.PostgresPgDump,
 	"aws.rds.snapshot":         providers.RdsSnapshot,
 	"aws.rds.snapshot.cluster": providers.RdsClusterSnapshot,
+	"mysql.mysqldump":          providers.MysqlDump,
 }
 
 func main() {

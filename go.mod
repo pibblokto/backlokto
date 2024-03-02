@@ -4,6 +4,8 @@ go 1.21
 
 require (
 	github.com/aws/aws-sdk-go v1.49.9
+	github.com/go-sql-driver/mysql v1.7.1
+	github.com/jamf/go-mysqldump v0.8.1
 	gopkg.in/yaml.v3 v3.0.1
 )
 

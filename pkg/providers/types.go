@@ -7,5 +7,4 @@ import (
 
 var TargetsMap = map[string]func(*types.Target, *types.Artifacts){
 	"s3": targets.S3Target,
-	// "local": target.LocalTarget
 }
