@@ -3,6 +3,10 @@ package targets
 import (
 	"fmt"
 	"os"
+	"path"
+	"strconv"
+	"strings"
+	"time"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/credentials"
@@ -10,6 +14,11 @@ import (
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/pibblokto/backlokto/pkg/types"
 )
+
+func createFilename(oldName string) string {
+	filenameSlice := strings.Split(path.Base(oldName), ".")
+	return filenameSlice[0] + "_" + strconv.FormatInt(time.Now().Unix(), 10) + ".sql"
+}
 
 func S3Target(target *types.Target, articats *types.Artifacts) {
 	// Extract values from target and artifacts struct
@@ -64,9 +73,10 @@ func S3Target(target *types.Target, articats *types.Artifacts) {
 	}
 
 	// Upload the file to S3
+	newFilename := createFilename(file.Name())
 	_, err = uploader.PutObject(&s3.PutObjectInput{
 		Bucket: aws.String(bucket_name),
-		Key:    aws.String(target.S3BucketKey + trailing_slash + file.Name()),
+		Key:    aws.String(target.S3BucketKey + trailing_slash + newFilename),
 		Body:   file,
 	})
 	if err != nil {
@@ -74,5 +84,5 @@ func S3Target(target *types.Target, articats *types.Artifacts) {
 		return
 	}
 
-	fmt.Printf("File %s uploaded to S3 bucket %s\n", filepath, bucket_name)
+	fmt.Printf("File %s uploaded to S3 bucket %s\n", newFilename, bucket_name)
 }

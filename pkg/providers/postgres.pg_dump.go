@@ -3,7 +3,6 @@ package providers
 import (
 	"fmt"
 	"os"
-	"time"
 
 	pg "github.com/habx/pg-commands"
 	"github.com/pibblokto/backlokto/pkg/types"
@@ -31,7 +30,7 @@ func PostgresPgDump(job *types.BackupJob) {
 		fmt.Println(err)
 	}
 
-	dump.SetFileName(fmt.Sprintf(`%v_%v.sql`, dump.DB, time.Now().Unix()))
+	dump.SetFileName(fmt.Sprintf(`%v.sql`, dump.DB))
 	dump.SetupFormat("p")
 
 	dumpExec := dump.Exec(pg.ExecOptions{StreamPrint: true})
